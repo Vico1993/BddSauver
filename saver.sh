@@ -10,6 +10,6 @@ databases=`mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASE
 for db in $databases; do
     if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
         echo "Dumping database: $db"
-        mysqldump -u $USER -p$PASSWORD --databases $db > `date +%Y%m%d`.$db.sql
+        mysqldump -u $USER -p$PASSWORD --databases $db > ./save/`date +%Y%m%d`.$db.sql
     fi
 done
