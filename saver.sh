@@ -12,6 +12,6 @@ databases=`mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASE
 for db in $databases; do
     if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "sys" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
         echo "Dumping database: $db"
-        mysqldump -u $USER -h $IP -P $PORT --password=$PASSWORD --databases $db > ./save/`date +%Y%m%d`.$db.sql
+        mysqldump -u $USER -h $IP -P $PORT --password=$PASSWORD --databases $db > /home/vico/save_bdd/`date +%Y%m%d`.$db.sql
     fi
 done
