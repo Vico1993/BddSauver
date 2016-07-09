@@ -8,7 +8,7 @@ PORT='3306'
 PASSWORD="victor1993"
 
 # databases=`mysql -h $IP -u $USER -p$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database`
-mysql -h $IP -u $USER -P $PORT -p $PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database
+mysql -h $IP -u $USER -P $PORT --password=$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database
 
 # for db in $databases; do
 #     if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
