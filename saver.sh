@@ -10,7 +10,7 @@ databases=`mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASE
 # mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database
 
 for db in $databases; do
-    if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
+    if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "sys" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != _* ]] ; then
         echo "Dumping database: $db"
         mysqldump -u $USER -h $IP -P $PORT --password=$PASSWORD --databases $db > ./save/`date +%Y%m%d`.$db.sql
     fi
