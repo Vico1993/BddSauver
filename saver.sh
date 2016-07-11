@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 USER="root"
-IP="163.172.39.22"
+IP="XXX.XXX.XXX.XXX"
 PORT='3306'
-PASSWORD="victor1993"
+PASSWORD="***********"
 
 databases=`mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database`
 
