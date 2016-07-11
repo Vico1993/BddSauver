@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-USER="root"
-IP="XXX.XXX.XXX.XXX"
-PORT='3306'
-PASSWORD="***********"
+#Load Variable local in config.cfg
+source ./config.cfg
 
 databases=`mysql -h $IP -P $PORT -u $USER --password=$PASSWORD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database`
 
